@@ -6,7 +6,7 @@ import time
 with open("links_table_clean.json", "r") as file:
     links=json.load(file)
 
-#timesleep=1
+timesleep=1
 
 scraped_data = {}
 
@@ -37,9 +37,8 @@ for key, url in links.items():
                     player_dictionary[content[0].strip()]=content[1]
     print(player_dictionary)
     scraped_data[key] = player_dictionary
-    #time.sleep(timesleep)
+    time.sleep(timesleep)
 
 with open('fifa_data.json', 'w') as storage_file:
     storage_file.write(json.dumps(scraped_data))
 
-# insert dictionary to sql
